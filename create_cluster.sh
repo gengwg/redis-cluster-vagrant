@@ -5,15 +5,10 @@ set -ex
 # create cluster
 yes yes | \
 /opt/redis/bin/redis-trib.rb create --replicas 1 \
-127.0.0.1:7379 \
-127.0.0.1:7479 \
-127.0.0.1:7579 \
-127.0.0.1:7679 \
-127.0.0.1:7779 \
-127.0.0.1:7879 \
-
-# disable protected mode
-for p in $(seq 7379 100 7879); do
-  /opt/redis/bin/redis-cli -p $p CONFIG SET protected-mode no && /opt/redis/bin/redis-cli -p $p CONFIG REWRITE
-done
+192.168.33.10:7379 \
+192.168.33.10:7479 \
+192.168.33.10:7579 \
+192.168.33.10:7679 \
+192.168.33.10:7779 \
+192.168.33.10:7879 \
 

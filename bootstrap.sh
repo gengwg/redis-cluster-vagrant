@@ -11,3 +11,7 @@ systemctl enable supervisord
 # install gem
 yum install ruby-devel libyaml-devel -y
 gem install redis
+
+# python client
+pip install --upgrade pip
+pip install redis-py-cluster
